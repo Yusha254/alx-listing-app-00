@@ -27,3 +27,13 @@ export interface ButtonProps {
   variant?: "search" | "profile" | "info" | "primary" | "secondary";
   icon?: ReactNode; // for react-icons later
 }
+
+export interface CardProps {
+  property: PropertyProps;
+}
+
+export interface PillProps {
+  label: string;
+  active?: boolean;
+  onClick?: () => void;
+}
