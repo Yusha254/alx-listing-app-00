@@ -3,13 +3,11 @@ import { IoBedSharp } from "react-icons/io5";
 import { FaBath } from "react-icons/fa";
 import { IoPeopleSharp } from "react-icons/io5";
 import React from "react";
-import { PropertyProps } from "@/interfaces/index";
 import { CardProps } from "@/interfaces/index";
-
 
 export default function Card({ property }: CardProps) {
   return (
-    <div className="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden w-full md:w-[320px]">
+    <div className="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden w-full">
       {/* Image */}
       <div className="relative">
         <Image
@@ -28,46 +26,50 @@ export default function Card({ property }: CardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-4 space-y-2">
-        {/* Title */}
-        <h3 className="text-lg font-semibold">{property.name}</h3>
-        {/* Location */}
-        <p className="text-sm text-gray-500">
-          {property.address.city}, {property.address.country}
-        </p>
+      <div className="p-4 space-y-3">
         {/* Categories */}
         <div className="flex flex-wrap gap-2">
           {property.category.map((cat) => (
             <span
               key={cat}
-              className="bg-gray-100 text-gray-700 text-xs px-2 py-1 rounded-full"
+              className="bg-gray-100 text-gray-700 text-xs px-1 py-1 rounded-full"
             >
               {cat}
             </span>
           ))}
         </div>
 
-        {/* Icons */}
-        <div className="flex items-center justify-between mt-3 text-gray-600">
+        {/* Name, Location, Rating */}
+        <div className="flex items-start justify-between">
+          <div>
+            <h3 className="text-xl font-semibold">{property.name}</h3>
+            <p className="text-sm text-gray-500">
+              {property.address.city}, {property.address.country}
+            </p>
+          </div>
+          <span className="text-yellow-500 font-medium whitespace-nowrap">
+            ⭐ {property.rating}
+          </span>
+        </div>
+
+        {/* Facilities */}
+        <div className="flex items-center gap-4 mt-2 text-gray-600">
           <div className="flex items-center gap-1">
             <IoBedSharp />
-            <span className="text-sm">{property.offers.bed}</span>
+            <span className="text-xs">{property.offers.bed}</span>
           </div>
           <div className="flex items-center gap-1">
             <FaBath />
-            <span className="text-sm">{property.offers.shower}</span>
+            <span className="text-xs">{property.offers.shower}</span>
           </div>
           <div className="flex items-center gap-1">
             <IoPeopleSharp />
-            <span className="text-sm">{property.offers.occupants}</span>
+            <span className="text-xs">{property.offers.occupants}</span>
           </div>
         </div>
 
-        {/* Rating and price */}
-        <div className="flex items-center justify-between mt-4">
-          <span className="text-yellow-500 font-medium">
-            ⭐ {property.rating}
-          </span>
+        {/* Price */}
+        <div className="flex justify-end mt-4">
           <span className="text-lg font-bold">
             ${property.price}
             <span className="text-sm text-gray-500">/n</span>

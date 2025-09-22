@@ -2,6 +2,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import { LOGO_DARK } from "@/constants/index";
 import { FiSearch, FiUser } from "react-icons/fi";
 import { GoBriefcase } from "react-icons/go";
 import { PiCouch } from "react-icons/pi";
@@ -17,7 +19,7 @@ import { FiChevronRight } from "react-icons/fi";
 import Button from "@/components/common/Button";
 
 
-const iconSize = 32; 
+const iconSize = 28; 
 
 const accommodationTypes = [
   { title: "Rooms", icon: <PiCouch size={iconSize} /> },
@@ -62,7 +64,15 @@ const Header = () => {
       <div className="grid grid-cols-3 items-center px-6 py-4 bg-white">
         {/* Logo */}
         <h1 className="text-2xl font-bold text-[#151117]">
-          <Link href="/">StayFinder</Link>
+          <Link href="/">
+            <Image
+                src={LOGO_DARK}
+                alt="alx"
+                width={40}
+                height={20}
+                priority
+            />
+          </Link>
         </h1>
 
         {/* Search */}

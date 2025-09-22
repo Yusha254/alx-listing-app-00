@@ -1,6 +1,12 @@
 //Constants
 import { PropertyProps } from "@/interfaces/index";
-export const HERO_IMAGE = "@/public/assets/hero.jpg";
+import HeroImage from "@/public/assets/hero.jpg";
+import LogoDark from "@/public/assets/ALX_LOGO_DARK.png";
+import LogoLight from "@/public/assets/ALX_LOGO_LIGHT.png";
+
+export const HERO_IMAGE = HeroImage;
+export const LOGO_DARK = LogoDark;
+export const LOGO_LIGHT = LogoLight;
 
 export const PROPERTYLISTINGSAMPLE: PropertyProps []  =  [
   {
